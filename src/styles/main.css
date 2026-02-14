@@ -1,0 +1,575 @@
+/* Import Survey Styles */
+@import './survey.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #FAF7F0;
+  --blush: #E8C4C4;
+  --sage: #A8B5A0;
+  --dark-sage: #7D8F7A;
+  --text-dark: #3D3D3D;
+  --text-light: #6B6B6B;
+  --accent: #D4A5A5;
+  
+  --font-serif: 'Cormorant', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(250, 247, 240, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  z-index: 100;
+  border-bottom: 1px solid rgba(168, 181, 160, 0.2);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark-sage);
+  letter-spacing: 3px;
+}
+
+/* Main Invitation Styles */
+.main-invitation {
+  padding-top: 80px;
+}
+
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  background: linear-gradient(135deg, var(--cream) 0%, #FFF8F0 100%);
+}
+
+.floral-decoration {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23A8B5A0' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Ccircle cx='160' cy='40' r='3'/%3E%3Ccircle cx='100' cy='100' r='5'/%3E%3Ccircle cx='40' cy='160' r='3'/%3E%3Ccircle cx='160' cy='160' r='3'/%3E%3Cpath d='M100 20 Q80 40 100 60 Q120 40 100 20M100 140 Q80 160 100 180 Q120 160 100 140M20 100 Q40 80 60 100 Q40 120 20 100M140 100 Q160 80 180 100 Q160 120 140 100' fill='none' stroke='%23A8B5A0' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.floral-decoration.top {
+  top: 5%;
+  left: 5%;
+  animation: floatFloral 20s ease-in-out infinite;
+}
+
+.floral-decoration.bottom {
+  bottom: 5%;
+  right: 5%;
+  transform: rotate(180deg);
+  animation: floatFloral 20s ease-in-out infinite reverse;
+}
+
+@keyframes floatFloral {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -10px) rotate(5deg); }
+  50% { transform: translate(-10px, 10px) rotate(-5deg); }
+  75% { transform: translate(10px, 10px) rotate(3deg); }
+}
+
+.invitation-content {
+  max-width: 800px;
+  text-align: center;
+  z-index: 10;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greeting {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.couple-names {
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: var(--dark-sage);
+  margin: 1.5rem 0;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.invitation-text {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin: 2rem 0;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.wedding-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.date-number {
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.date-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-transform: uppercase;
+}
+
+.month {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--dark-sage);
+  letter-spacing: 2px;
+}
+
+.year {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 3px;
+}
+
+/* Countdown Timer */
+.countdown {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.countdown h3 {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: var(--dark-sage);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.countdown-value {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Important Info Section */
+.important-info {
+  padding: 3rem 2rem;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+
+.info-card {
+  text-align: center;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, #FFF8F0 0%, var(--cream) 100%);
+  border-radius: 15px;
+  border: 2px solid var(--accent);
+  max-width: 500px;
+}
+
+.info-card.important {
+  box-shadow: 0 8px 25px rgba(212, 165, 165, 0.2);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--dark-sage);
+  margin-bottom: 1rem;
+}
+
+.deadline-date {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.info-description {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Special Requests Section */
+.special-requests {
+  padding: 4rem 2rem;
+  background: var(--cream);
+  text-align: center;
+}
+
+.special-requests h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--dark-sage);
+  margin-bottom: 3rem;
+}
+
+.request-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.request-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.request-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.request-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--dark-sage);
+  margin-bottom: 1rem;
+}
+
+.request-card p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* Event Details Section */
+.event-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 4rem 2rem;
+}
+
+.detail-card {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.detail-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--dark-sage);
+  margin-bottom: 0.5rem;
+}
+
+.detail-card p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  padding: 4rem 2rem;
+  background: white;
+}
+
+.photo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.couple-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* RSVP Section */
+.rsvp-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #FFF8F0 0%, var(--cream) 100%);
+}
+
+.rsvp-section h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--dark-sage);
+  margin-bottom: 1rem;
+}
+
+.rsvp-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.rsvp-button {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: white;
+  background: var(--dark-sage);
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.rsvp-button:hover {
+  background: var(--sage);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(125, 143, 122, 0.3);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--dark-sage);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+.footer-year {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .couple-names {
+    font-size: 3rem;
+  }
+
+  .date-number {
+    font-size: 4rem;
+  }
+
+  .month {
+    font-size: 1rem;
+  }
+
+  .countdown-timer {
+    gap: 1rem;
+  }
+
+  .countdown-value {
+    font-size: 2.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+  }
+
+  .rsvp-section h2,
+  .special-requests h2 {
+    font-size: 2rem;
+  }
+
+  .event-details {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .floral-decoration {
+    width: 150px;
+    height: 150px;
+  }
+
+  .request-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    padding: 1.5rem 2rem;
+  }
+
+  .deadline-date {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .couple-names {
+    font-size: 2.5rem;
+  }
+
+  .invitation-text {
+    font-size: 1rem;
+  }
+
+  .greeting {
+    font-size: 1rem;
+  }
+
+  .countdown-timer {
+    gap: 0.5rem;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+  }
+
+  .countdown h3 {
+    font-size: 1rem;
+  }
+
+  .request-icon {
+    font-size: 2.5rem;
+  }
+
+  .request-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .detail-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .detail-card p {
+    font-size: 0.9rem;
+  }
+}

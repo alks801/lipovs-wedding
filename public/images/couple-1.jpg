@@ -1,0 +1,28 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF7F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8C4C4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g transform="translate(400, 300)">
+    <!-- Decorative floral elements -->
+    <circle cx="-150" cy="-80" r="40" fill="#A8B5A0" opacity="0.3"/>
+    <circle cx="150" cy="-80" r="40" fill="#A8B5A0" opacity="0.3"/>
+    <circle cx="-150" cy="80" r="40" fill="#D4A5A5" opacity="0.3"/>
+    <circle cx="150" cy="80" r="40" fill="#D4A5A5" opacity="0.3"/>
+    
+    <!-- Heart shape -->
+    <path d="M 0,-20 C -10,-35 -30,-35 -30,-20 C -30,-5 -10,10 0,25 C 10,10 30,-5 30,-20 C 30,-35 10,-35 0,-20 Z" 
+          fill="#7D8F7A" opacity="0.6" transform="scale(2)"/>
+    
+    <!-- Text -->
+    <text x="0" y="120" font-family="'Cormorant', serif" font-size="36" fill="#3D3D3D" text-anchor="middle">
+      Максим &amp; Полина
+    </text>
+    <text x="0" y="160" font-family="'Montserrat', sans-serif" font-size="18" fill="#6B6B6B" text-anchor="middle">
+      31 июля 2026
+    </text>
+  </g>
+</svg>
