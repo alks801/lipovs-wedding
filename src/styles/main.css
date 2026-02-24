@@ -104,6 +104,24 @@ body {
   overflow: hidden;
 }
 
+.decor-hearts {
+  position: absolute;
+  top: 8rem;
+  right: 2rem;
+  width: 160px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decor-rings {
+  position: absolute;
+  bottom: 6rem;
+  left: 2rem;
+  width: 150px;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .polaroid-scene {
   width: 100%;
   max-width: 900px;

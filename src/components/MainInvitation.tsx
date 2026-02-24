@@ -15,16 +15,16 @@ function MainInvitation() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const guestName = searchParams.get('name')
-  
+
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-  
+
   const weddingDate = new Date('2026-07-31T15:00:00')
-  
+
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date()
       const difference = weddingDate.getTime() - now.getTime()
-      
+
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -34,7 +34,7 @@ function MainInvitation() {
         })
       }
     }
-    
+
     calculateTimeLeft()
     const timer = setInterval(calculateTimeLeft, 1000)
     return () => clearInterval(timer)
@@ -74,11 +74,23 @@ function MainInvitation() {
   return (
     <div className="main-invitation">
       <Header />
-      
+
       {/* Детские фото — polaroid стиль, влетают с боков */}
       <section className="childhood-photos" ref={photosRef}>
+        <motion.img
+          src="/images/hearts.png" alt="" className="decor-rings"
+          initial={{ opacity: 0 }}
+          animate={photosInView ? { opacity: 0.4 } : {}}
+          transition={{ duration: 1, ease: 'easeInOut' as const, delay: 1 }}
+        />
+        <motion.img
+          src="/images/rings.png" alt="" className="decor-hearts"
+          initial={{ opacity: 0 }}
+          animate={photosInView ? { opacity: 0.4 } : {}}
+          transition={{ duration: 1, ease: 'easeInOut' as const, delay: 1 }}
+        />
         <div className="polaroid-scene">
-          <motion.div 
+          <motion.div
             className="polaroid left"
             initial={{ x: '-100vw', rotate: -25 }}
             animate={photosInView ? { x: 0, rotate: -6 } : {}}
@@ -92,7 +104,7 @@ function MainInvitation() {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="polaroid right"
             initial={{ x: '100vw', rotate: 25 }}
             animate={photosInView ? { x: 0, rotate: 5 } : {}}
@@ -107,16 +119,16 @@ function MainInvitation() {
       </section>
 
       {/* Фото-разделитель */}
-      <section className="photo-divider" style={{backgroundImage: 'url(/images/photo_2026-02-24_21.58.50.jpeg)'}}></section>
-      
+      <section className="photo-divider" style={{ backgroundImage: 'url(/images/photo_2026-02-24_21.58.50.jpeg)' }}></section>
+
       {/* Приглашение */}
       <div className="hero-section">
         <motion.div className="invitation-content" {...fadeUp}>
           <motion.p className="greeting" {...fadeUp}>{getGreeting()}</motion.p>
-          
+
           <div className="divider-line"></div>
-          
-          <motion.h1 
+
+          <motion.h1
             className="couple-names"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -125,16 +137,16 @@ function MainInvitation() {
           >
             Максим<span className="amp">&</span>Полина
           </motion.h1>
-          
+
           <div className="divider-line"></div>
-          
+
           <motion.p className="invitation-text" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}>
             Хотим сообщить Вам радостную новость —<br />
             <strong>МЫ ЖЕНИМСЯ!</strong><br />
             Приглашаем Вас отпраздновать наш<br />
             первый семейный праздник — нашу свадьбу!
           </motion.p>
-          
+
           <motion.div className="wedding-date" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.4 }}>
             <div className="date-number">31</div>
             <div className="date-details">
@@ -142,7 +154,7 @@ function MainInvitation() {
               <span className="year">2026</span>
             </div>
           </motion.div>
-          
+
           <motion.div className="countdown" {...fadeIn} transition={{ duration: 1.2, delay: 0.6 }}>
             <p className="countdown-title">До торжества осталось</p>
             <div className="countdown-timer">
@@ -171,9 +183,9 @@ function MainInvitation() {
       </div>
 
       {/* Место проведения */}
-      <motion.section 
-        className="venue-section" 
-        style={{backgroundImage: 'url(/images/photo_2026-02-24_21.58.46.jpeg)'}}
+      <motion.section
+        className="venue-section"
+        style={{ backgroundImage: 'url(/images/photo_2026-02-24_21.58.46.jpeg)' }}
         {...fadeIn}
       >
         <div className="venue-overlay">
@@ -185,9 +197,9 @@ function MainInvitation() {
               Колхозная ул., 19А<br />
               Козельск
             </p>
-            <motion.a 
-              href="https://yandex.ru/navi/org/kars/14431688074?si=6g4hbz55aq7mc0zf7wpbzj1xwr" 
-              target="_blank" 
+            <motion.a
+              href="https://yandex.ru/navi/org/kars/14431688074?si=6g4hbz55aq7mc0zf7wpbzj1xwr"
+              target="_blank"
               rel="noopener noreferrer"
               className="venue-link"
               whileHover={{ scale: 1.05 }}
@@ -210,8 +222,8 @@ function MainInvitation() {
             { time: '16:30', text: 'Банкет' },
             { time: '22:30', text: 'Финал' },
           ].map((item, i) => (
-            <motion.div 
-              key={item.time} 
+            <motion.div
+              key={item.time}
               className="timeline-item"
               {...staggerItem}
               transition={{ duration: 0.5, ease: 'easeOut' as const, delay: i * 0.15 }}
@@ -225,9 +237,9 @@ function MainInvitation() {
       </section>
 
       {/* Дресс-код */}
-      <motion.section 
-        className="dresscode-section" 
-        style={{backgroundImage: 'url(/images/photo_2026-02-24_21.58.48.jpeg)'}}
+      <motion.section
+        className="dresscode-section"
+        style={{ backgroundImage: 'url(/images/photo_2026-02-24_21.58.48.jpeg)' }}
         {...fadeIn}
       >
         <div className="dresscode-overlay">
@@ -247,17 +259,17 @@ function MainInvitation() {
             </div>
           </motion.div>
           <motion.p className="color-palette-label" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}>Палитра</motion.p>
-          <motion.div 
+          <motion.div
             className="color-palette"
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {['#EDC9CA','#B5B5A1','#C6D4CE','#B3BFE6','#DECCCA','#E4A6B8','#C5C89F','#D1CDC5','#D3CCE3','#D4A5E5'].map((color, i) => (
+            {['#EDC9CA', '#B5B5A1', '#C6D4CE', '#B3BFE6', '#DECCCA', '#E4A6B8', '#C5C89F', '#D1CDC5', '#D3CCE3', '#D4A5E5'].map((color, i) => (
               <motion.span
                 key={color}
                 className="color-dot"
-                style={{background: color}}
+                style={{ background: color }}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -271,7 +283,7 @@ function MainInvitation() {
       {/* Важная информация */}
       <section className="special-requests">
         <div className="request-cards">
-          <motion.div 
+          <motion.div
             className="request-card"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -285,8 +297,8 @@ function MainInvitation() {
               или шампанского вместо букета цветов
             </p>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="request-card"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -306,9 +318,9 @@ function MainInvitation() {
       </section>
 
       {/* Дедлайн и RSVP */}
-      <motion.section 
-        className="rsvp-section" 
-        style={{backgroundImage: 'url(/images/photo_2026-02-24_21.58.50.jpeg)'}}
+      <motion.section
+        className="rsvp-section"
+        style={{ backgroundImage: 'url(/images/photo_2026-02-24_21.58.50.jpeg)' }}
         {...fadeIn}
       >
         <div className="rsvp-overlay">
@@ -320,7 +332,7 @@ function MainInvitation() {
               Пожалуйста, заполните короткую форму,<br />
               чтобы мы могли подготовить всё для вас
             </p>
-            <motion.button 
+            <motion.button
               className="rsvp-button"
               onClick={() => navigate('/survey')}
               whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(0,0,0,0.2)' }}
