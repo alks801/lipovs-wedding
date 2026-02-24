@@ -83,7 +83,7 @@ npm run deploy
 ## 📂 Структура проекта
 
 ```
-lipovs-wedding/
+/
 ├── src/
 │   ├── components/
 │   │   ├── MainInvitation.tsx    # Главная страница

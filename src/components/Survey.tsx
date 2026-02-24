@@ -6,7 +6,7 @@ import Header from './Header'
 interface FormData {
   firstName: string
   lastName: string
-  withPartner: boolean | null
+  // withPartner: boolean | null
   attending: boolean | null
 }
 
@@ -15,7 +15,7 @@ function Survey() {
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
-    withPartner: null,
+    // withPartner: null,
     attending: null
   })
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
@@ -37,12 +37,12 @@ function Survey() {
     }))
   }
 
-  const handlePartnerChange = (value: boolean) => {
-    setFormData(prev => ({
-      ...prev,
-      withPartner: value
-    }))
-  }
+  // const handlePartnerChange = (value: boolean) => {
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     withPartner: value
+  //   }))
+  // }
 
   const validateForm = (): boolean => {
     if (!formData.firstName.trim()) {
@@ -50,15 +50,11 @@ function Survey() {
       return false
     }
     if (!formData.lastName.trim()) {
-      setError('Пожалуйста, укажите вашу фамилию')
+      setError('Пожалуйста, укажите ваши предпочтения')
       return false
     }
     if (formData.attending === null) {
       setError('Пожалуйста, укажите, сможете ли вы присутствовать')
-      return false
-    }
-    if (formData.attending === true && formData.withPartner === null) {
-      setError('Пожалуйста, укажите, придете ли вы с супругой/супругом')
       return false
     }
     return true
@@ -116,27 +112,27 @@ function Survey() {
 
         <form className="survey-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="firstName">Имя *</label>
+            <label htmlFor="firstName">Введите Ваше имя и фамилию</label>
             <input
               type="text"
               id="firstName"
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              placeholder="Иван"
+              placeholder="Укажите имя и фамилию каждого гостя"
               required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="lastName">Фамилия *</label>
+            <label htmlFor="lastName">Предпочтения по напиткам</label>
             <input
               type="text"
               id="lastName"
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              placeholder="Иванов"
+              placeholder="Просим указать Ваши предпочтения"
               required
             />
           </div>
@@ -164,7 +160,7 @@ function Survey() {
               </label>
             </div>
           </div>
-
+{/* 
           {formData.attending === true && (
             <div className="form-group">
               <label>Будете ли вы с супругой/супругом? *</label>
@@ -189,7 +185,7 @@ function Survey() {
                 </label>
               </div>
             </div>
-          )}
+          )} */}
 
           {error && (
             <div className="error-message">

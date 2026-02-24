@@ -3,7 +3,6 @@ import axios from 'axios'
 interface FormData {
   firstName: string
   lastName: string
-  withPartner: boolean | null
   attending: boolean | null
 }
 
@@ -23,16 +22,12 @@ export async function sendToTelegram(formData: FormData): Promise<TelegramRespon
 
   const fullName = `${formData.firstName} ${formData.lastName}`
   const attendingText = formData.attending ? 'Да, будет' : 'Нет, не будет'
-  const partnerText = formData.attending 
-    ? (formData.withPartner ? 'С супругой/супругом' : 'Один/одна')
-    : 'Не применимо'
 
   const message = `
 🎊 Новый ответ на приглашение
 
 👤 ФИО: ${fullName}
 ✅ Присутствие: ${attendingText}
-👫 Сопровождение: ${partnerText}
   `.trim()
 
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`

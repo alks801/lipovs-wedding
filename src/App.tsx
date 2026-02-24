@@ -4,7 +4,7 @@ import Survey from './components/Survey'
 
 function App() {
   return (
-    <Router basename="/lipovs-wedding">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={<MainInvitation />} />
         <Route path="/survey" element={<Survey />} />
