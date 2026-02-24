@@ -2,7 +2,7 @@ import axios from 'axios'
 
 interface FormData {
   firstName: string
-  lastName: string
+  drinks: string
   attending: boolean | null
 }
 
@@ -11,26 +11,21 @@ interface TelegramResponse {
   result: any
 }
 
-const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN as string
-const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID as string
+const TELEGRAM_CHAT_ID = '-5126852416'
 
 export async function sendToTelegram(formData: FormData): Promise<TelegramResponse> {
-  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-    console.error('Telegram credentials not configured')
-    throw new Error('Telegram configuration missing')
-  }
-
-  const fullName = `${formData.firstName} ${formData.lastName}`
+  const fullName = `${formData.firstName}`
   const attendingText = formData.attending ? 'Да, будет' : 'Нет, не будет'
 
   const message = `
 🎊 Новый ответ на приглашение
 
 👤 ФИО: ${fullName}
+🥂 Предпочтения: ${formData.drinks}
 ✅ Присутствие: ${attendingText}
   `.trim()
 
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`
+  const url = `https://api.telegram.org/bot8790424719:AAGATiXMSw6L6XV7ZySkXwyGrP7tfJH3Txg/sendMessage`
 
   try {
     const response = await axios.post<TelegramResponse>(url, {

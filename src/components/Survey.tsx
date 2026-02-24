@@ -5,7 +5,7 @@ import Header from './Header'
 
 interface FormData {
   firstName: string
-  lastName: string
+  drinks: string
   // withPartner: boolean | null
   attending: boolean | null
 }
@@ -14,7 +14,7 @@ function Survey() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
-    lastName: '',
+    drinks: '',
     // withPartner: null,
     attending: null
   })
@@ -49,7 +49,7 @@ function Survey() {
       setError('Пожалуйста, укажите ваше имя')
       return false
     }
-    if (!formData.lastName.trim()) {
+    if (!formData.drinks.trim()) {
       setError('Пожалуйста, укажите ваши предпочтения')
       return false
     }
@@ -128,9 +128,9 @@ function Survey() {
             <label htmlFor="lastName">Предпочтения по напиткам</label>
             <input
               type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
+              id="drinks"
+              name="drinks"
+              value={formData.drinks}
               onChange={handleChange}
               placeholder="Просим указать Ваши предпочтения"
               required
