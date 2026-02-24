@@ -129,8 +129,10 @@ function MainInvitation() {
           <div className="divider-line"></div>
           
           <motion.p className="invitation-text" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}>
-            С радостью приглашаем вас<br />
-            на наш <strong>День свадьбы</strong>
+            Хотим сообщить Вам радостную новость —<br />
+            <strong>МЫ ЖЕНИМСЯ!</strong><br />
+            Приглашаем Вас отпраздновать наш<br />
+            первый семейный праздник — нашу свадьбу!
           </motion.p>
           
           <motion.div className="wedding-date" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.4 }}>
@@ -294,8 +296,10 @@ function MainInvitation() {
             <p className="section-label">Только для взрослых</p>
             <div className="divider-line short"></div>
             <p>
-              Просим с пониманием отнестись к тому,<br />
-              что это будет вечер только для взрослых
+              С любовью приглашаем вас разделить с нами<br />
+              этот особенный день. Для полного комфорта всех<br />
+              гостей просим оставить малышей дома<br />
+              и провести этот вечер только для себя.
             </p>
           </motion.div>
         </div>
@@ -310,7 +314,7 @@ function MainInvitation() {
         <div className="rsvp-overlay">
           <motion.div {...fadeUp}>
             <p className="section-label light">Подтвердите присутствие</p>
-            <h2>до 15 июля 2026</h2>
+            <h2>до 1 июля 2026</h2>
             <div className="divider-line light"></div>
             <p className="rsvp-subtitle">
               Пожалуйста, заполните короткую форму,<br />

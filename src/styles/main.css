@@ -476,7 +476,7 @@ body {
 /* Dresscode Section */
 .dresscode-section {
   position: relative;
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -582,7 +582,7 @@ body {
 }
 
 .request-card {
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
   border: 1px solid rgba(168, 181, 160, 0.3);
   border-radius: 4px;
   transition: transform 0.3s ease;
@@ -751,7 +751,7 @@ body {
   }
 
   .photo-divider {
-    height: 30vh;
+    height: 45vh;
     background-attachment: scroll;
   }
 
