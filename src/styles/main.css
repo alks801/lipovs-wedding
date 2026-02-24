@@ -157,7 +157,6 @@ body {
   right: 5%;
   bottom: 15%;
   z-index: 3;
-  top: -60px !important;
   margin-left: auto;
 }
 
@@ -846,6 +845,10 @@ body {
 
   .polaroid {
     padding: 10px 10px 45px 10px;
+  }
+
+  .polaroid.right {
+    top: -60px !important;
   }
 
   .polaroid-caption {
