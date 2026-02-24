@@ -85,7 +85,7 @@ function MainInvitation() {
             transition={{ type: 'spring', stiffness: 60, damping: 15, duration: 2 }}
           >
             <div className="polaroid-frame">
-              <img src="/images/photo_2026-02-24_21.57.00.jpg" alt="Полина" />
+              <img src="/images/Polina.jpg" alt="Полина" />
             </div>
             <p className="polaroid-caption">
               Интересно, кто будет<br />моим мужем,<br />когда я вырасту?
@@ -99,7 +99,7 @@ function MainInvitation() {
             transition={{ type: 'spring', stiffness: 60, damping: 15, duration: 2, delay: 1.3 }}
           >
             <div className="polaroid-frame">
-              <img src="/images/photo_2026-02-24_21.57.02.jpg" alt="Максим" />
+              <img src="/images/Max.jpg" alt="Максим" />
             </div>
             <p className="polaroid-caption">Им буду я!</p>
           </motion.div>
