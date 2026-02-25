@@ -1,5 +1,5 @@
 /* Import Survey Styles */
-@import './survey.css';
+@import "./survey.css";
 
 * {
   margin: 0;
@@ -8,16 +8,16 @@
 }
 
 :root {
-  --cream: #FAF7F0;
-  --blush: #E8C4C4;
-  --sage: #A8B5A0;
-  --dark-sage: #7D8F7A;
-  --text-dark: #3D3D3D;
-  --text-light: #6B6B6B;
-  --accent: #D4A5A5;
-  
-  --font-serif: 'Cormorant', serif;
-  --font-sans: 'Montserrat', sans-serif;
+  --cream: #faf7f0;
+  --blush: #e8c4c4;
+  --sage: #a8b5a0;
+  --dark-sage: #7d8f7a;
+  --text-dark: #3d3d3d;
+  --text-light: #6b6b6b;
+  --accent: #d4a5a5;
+
+  --font-serif: "Cormorant", serif;
+  --font-sans: "Montserrat", sans-serif;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 }
 
 .section-label.light {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .divider-line {
@@ -55,7 +55,7 @@ body {
 }
 
 .divider-line.light {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .divider-line.short {
@@ -172,7 +172,7 @@ body {
 }
 
 .polaroid-caption {
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   font-size: 1.4rem;
   font-style: italic;
   font-weight: 400;
@@ -201,7 +201,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 6rem 1rem;
   position: relative;
   background: var(--cream);
 }
@@ -214,8 +214,14 @@ body {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .greeting {
@@ -383,7 +389,7 @@ body {
 }
 
 .venue-content .section-label {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .venue-content h2 {
@@ -395,13 +401,13 @@ body {
 }
 
 .venue-content .divider-line {
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .venue-address {
   font-family: var(--font-sans);
   font-size: 1.2rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 2;
   margin-bottom: 2.5rem;
   font-weight: 300;
@@ -417,7 +423,7 @@ body {
   background: transparent;
   padding: 1rem 2.5rem;
   border-radius: 0;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: all 0.3s ease;
   letter-spacing: 3px;
@@ -438,56 +444,74 @@ body {
 }
 
 .timeline {
-  max-width: 500px;
+  max-width: 600px;
   margin: 3rem auto 0;
   position: relative;
+  padding-left: 40px;
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
-  left: 50%;
+  left: 10px;
   top: 0;
   bottom: 0;
   width: 1px;
   background: var(--sage);
-  transform: translateX(-50%);
 }
 
 .timeline-item {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   margin-bottom: 3rem;
   position: relative;
 }
 
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 1.2rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
 .timeline-time {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 3.5rem;
   color: var(--accent);
-  text-align: right;
   font-weight: 300;
+  font-style: italic;
+  margin-bottom: 0.3rem;
 }
 
-.timeline-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid var(--sage);
-  position: relative;
-  z-index: 2;
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
 }
 
-.timeline-text {
+.timeline-title {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text-dark);
-  text-align: left;
-  font-weight: 400;
   letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.timeline-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 400px;
 }
 
 /* Dresscode Section */
@@ -540,7 +564,7 @@ body {
 .dresscode-who {
   font-family: var(--font-sans);
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -556,7 +580,7 @@ body {
 .color-palette-label {
   font-family: var(--font-sans);
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-top: 3rem;
@@ -593,8 +617,8 @@ body {
 .request-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  max-width: 800px;
+  gap: 2.5rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -615,6 +639,28 @@ body {
   color: var(--text-light);
   line-height: 1.9;
   font-weight: 300;
+}
+
+.contact-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.contact-phone {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.contact-phone:hover {
+  color: var(--sage);
 }
 
 /* RSVP Section */
@@ -656,7 +702,7 @@ body {
 .rsvp-subtitle {
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 2.5rem;
   line-height: 2;
   font-weight: 300;
@@ -669,7 +715,7 @@ body {
   font-weight: 500;
   color: white;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   padding: 1.2rem 3rem;
   border-radius: 0;
   cursor: pointer;
@@ -751,12 +797,33 @@ body {
     font-size: 2.5rem;
   }
 
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
   .timeline-item {
-    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item::before {
+    left: -28px;
   }
 
   .timeline-time {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
+    max-width: 280px;
   }
 
   .request-cards {
@@ -804,6 +871,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .request-card {
+    padding: 1.5rem 0.5rem;
+  }
+
   .couple-names {
     font-size: 2.8rem;
   }
@@ -831,13 +902,17 @@ body {
   }
 
   .timeline-time {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   .timeline-text {
     font-size: 0.9rem;
   }
 
+  .special-requests {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
   .polaroid-frame img {
     width: 180px;
     height: 220px;

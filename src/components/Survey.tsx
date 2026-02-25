@@ -107,7 +107,7 @@ function Survey() {
       <div className="survey-container">
         <h1>Подтверждение присутствия</h1>
         <p className="survey-description">
-          Пожалуйста, заполните форму до 15 июля 2026
+          Пожалуйста, заполните форму до 1 июля 2026
         </p>
 
         <form className="survey-form" onSubmit={handleSubmit}>

@@ -124,9 +124,8 @@ function MainInvitation() {
       {/* Приглашение */}
       <div className="hero-section">
         <motion.div className="invitation-content" {...fadeUp}>
-          <motion.p className="greeting" {...fadeUp}>{getGreeting()}</motion.p>
+          
 
-          <div className="divider-line"></div>
 
           <motion.h1
             className="couple-names"
@@ -140,11 +139,12 @@ function MainInvitation() {
 
           <div className="divider-line"></div>
 
+          <motion.p className="greeting" {...fadeUp}>{getGreeting()}</motion.p>
+
           <motion.p className="invitation-text" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}>
-            Хотим сообщить Вам радостную новость —<br />
-            <strong>МЫ ЖЕНИМСЯ!</strong><br />
-            Приглашаем Вас отпраздновать наш<br />
-            первый семейный праздник — нашу свадьбу!
+            Отныне и навсегда — приглашаем&nbsp;вас стать
+            свидетелями рождения нашей&nbsp;семьи.<br />
+            Ваша поддержка сделает этот день особенным
           </motion.p>
 
           <motion.div className="wedding-date" {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.4 }}>
@@ -217,10 +217,10 @@ function MainInvitation() {
         <div className="divider-line"></div>
         <div className="timeline">
           {[
-            { time: '14:45', text: 'Сбор гостей' },
-            { time: '15:00', text: 'Свадебная церемония' },
-            { time: '16:30', text: 'Банкет' },
-            { time: '22:30', text: 'Финал' },
+            { time: '14:45', title: 'Сбор гостей', desc: 'Вас встретит приятная музыка и лёгкие закуски под шампанское' },
+            { time: '15:00', title: 'Свадебная церемония', desc: 'Самый трогательный и нежный момент дня, когда мы станем семьёй и скажем друг другу важные слова' },
+            { time: '16:30', title: 'Свадебный ужин', desc: 'Наш праздник обещает быть шумным и весёлым, запаситесь энергией, хорошим настроением и сменной обувью для танцев' },
+            { time: '22:30', title: 'Окончание вечера', desc: 'Рано или поздно каждый праздник подходит к концу' },
           ].map((item, i) => (
             <motion.div
               key={item.time}
@@ -229,8 +229,10 @@ function MainInvitation() {
               transition={{ duration: 0.5, ease: 'easeOut' as const, delay: i * 0.15 }}
             >
               <span className="timeline-time">{item.time}</span>
-              <span className="timeline-dot"></span>
-              <span className="timeline-text">{item.text}</span>
+              <div className="timeline-content">
+                <span className="timeline-title">{item.title}</span>
+                <span className="timeline-desc">{item.desc}</span>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -293,8 +295,11 @@ function MainInvitation() {
             <p className="section-label">Вместо цветов</p>
             <div className="divider-line short"></div>
             <p>
-              Мы будем рады бутылке хорошего вина<br />
-              или шампанского вместо букета цветов
+              Будем благодарны, если вместо цветов,<br />
+              вашим подарком будет бутылочка напитка<br />
+              на ваш вкус — чтобы сохранить память<br />
+              об этом дне и открыть её в особенный<br />
+              момент вместе с вами!
             </p>
           </motion.div>
 
@@ -308,11 +313,29 @@ function MainInvitation() {
             <p className="section-label">Только для взрослых</p>
             <div className="divider-line short"></div>
             <p>
-              С любовью приглашаем вас разделить с нами<br />
-              этот особенный день. Для полного комфорта всех<br />
+              С любовью приглашаем вас разделить с&nbsp;нами
+              этот особенный день.<br />Для полного комфорта всех<br />
               гостей просим оставить малышей дома<br />
               и провести этот вечер только для себя.
             </p>
+          </motion.div>
+
+          <motion.div
+            className="request-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' as const, delay: 0.3 }}
+          >
+            <p className="section-label">Сюрпризы и подарки</p>
+            <div className="divider-line short"></div>
+            <p>
+              Если у вас есть идея для творческого<br />
+              сюрприза или необычного подарка,<br />
+              свяжитесь, пожалуйста, с нашей ведущей
+            </p>
+            <p className="contact-name">Варвара Садовникова</p>
+            <a href="tel:+79533256717" className="contact-phone">+7 (953) 325-67-17</a>
           </motion.div>
         </div>
       </section>
