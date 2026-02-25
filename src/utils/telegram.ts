@@ -11,7 +11,8 @@ interface TelegramResponse {
   result: any
 }
 
-const TELEGRAM_CHAT_ID = '-5126852416'
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID
 
 export async function sendToTelegram(formData: FormData): Promise<TelegramResponse> {
   const fullName = `${formData.firstName}`
@@ -25,7 +26,7 @@ export async function sendToTelegram(formData: FormData): Promise<TelegramRespon
 ✅ Присутствие: ${attendingText}
   `.trim()
 
-  const url = `https://api.telegram.org/bot8790424719:AAGATiXMSw6L6XV7ZySkXwyGrP7tfJH3Txg/sendMessage`
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`
 
   try {
     const response = await axios.post<TelegramResponse>(url, {
